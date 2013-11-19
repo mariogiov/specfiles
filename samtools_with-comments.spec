@@ -15,19 +15,39 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
 
+
+# Following openSUSE guidelines here:
+#   http://en.opensuse.org/openSUSE:Specfile_guidelines
+# See here for a specfile template and some more guidlines:
+#   https://fedoraproject.org/wiki/How_to_create_an_RPM_package#SPEC_templates_and_examples
+
+
+# http://en.opensuse.org/openSUSE:Package_naming_guidelines
 Name:		samtools
 Version:	0.1.19
 Release:	1%{?dist}
 Summary:	A set of tools for processing / filtering SAM- and BAM-formatted data
 
+# Non-standard group as required by http://en.opensuse.org/openSUSE:Package_group_guidelines
 Group:		Productivity/Scientific/Other
 License:	MIT
 URL:		http://samtools.sourceforge.net/
 Source:		http://sourceforge.net/projects/samtools/files/samtools/%{version}/samtools-%{version}.tar.bz2/download
+# preferred path (as per http://en.opensuse.org/openSUSE:Specfile_guidelines)
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
-BuildRequires:	zlib
-BuildRequires:	ncurses
+# BuildRequires are packages needed to actually build binaries form source
+BuildRequires: zlib
+BuildRequires: ncurses
+#BuildRequires:	autoconf
+#BuildRequires:	automake
+#BuildRequires:	python-devel
+#BuildRequires:	samtools-devel
+#BuildREquires:	zlib-devel
+#BuildRequires:	dos2unix
+
+# Requires are generally handled by rpmbuild or similar
+#Requires:	bowtie
 
 
 %description
@@ -42,27 +62,50 @@ SAM (Sequence Alignment/Map) format is a generic format for storing large nucleo
 SAM Tools provide various utilities for manipulating alignments in the SAM format, including sorting, merging, indexing and generating alignments in a per-position format.
 
 %prep
+# Uses the setup RPM macro, which knows about tar archives, to extract the files (tar -xvf)
 %setup -q
 
+#Fix bad permissions
+#chmod -x src/align_status.*
+#chmod -x src/deletions.*
+#chmod -x src/insertions.*
+
+
 %build
+# also we have no configure macro for samtools (it's not part of the build procedure)
+# NOTE that the files produced by make will be in the directory {_builddir}
 make %{?_smp_mflags}
 make %{?_smp_mflags} razip
 
 
+# NOTE that this install section is NOT run when the end-user installs a binary RPM;
+# it is only run when creating the package (i.e. on Open Build Service)
+# NOTE that normally this is when files move from {_builddir} to {buildroot}
 %install
+# samtools does not have a make install but instead packages are manually copied into place
+#make install DESTDIR=%{buildroot}
 mkdir -p %{buildroot}%{_bindir}
 cp samtools %{buildroot}%{_bindir}/samtools
 cp bcftools/bcftools %{buildroot}%{_bindir}/bcftools
 cp razip %{buildroot}%{_bindir}/razip
 
+#I believe the clean section is no longer necessary for the openSUSE Open Build Service
 %clean
 rm -rf %{buildroot}
 
+# Here are listed the files created by the build that "belong" to the RPM that will be installed by the end-user
 %files
+# defattr no longer needed?
 %defattr(-,root,root,-)
+#%doc AUTHORS COPYING NEWS README THANKS
+# NOTE {_bindir} becomes /usr/bin or similar, see https://fedoraproject.org/wiki/Packaging:RPMMacros
+#%{_bindir}/*
 %{_bindir}/samtools
 %{_bindir}/bcftools
 %{_bindir}/razip
+#samtools
+#bcftools/bcftools
+#razip
 
 %changelog
 * Tue Nov 19 2013 Mario Giovacchini <mario@scilifelab.se> - 1.0
