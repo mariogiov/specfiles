@@ -9,6 +9,8 @@ See:
 
 - https://fedoraproject.org/wiki/How_to_create_an_RPM_package
   - this is probably the best resource for understanding the different sections
+- https://fedoraproject.org/wiki/Packaging:RPMMacros
+  - an enumeration and description of RPM specfile %macros
 - http://en.opensuse.org/openSUSE:Specfile_guidelines
   - this gives the restrictions needed to keep a package on Open Build Service
 - http://fedoraproject.org/wiki/Packaging:Guidelines
