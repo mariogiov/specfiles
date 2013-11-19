@@ -3,8 +3,9 @@ specfiles
 
 rpm specfiles used for building packages in use at SciLifeLab
 
-See:
+Check these with rpmlint.
 
+See:
 
 - http://en.opensuse.org/openSUSE:Specfile_guidelines
 - http://fedoraproject.org/wiki/Packaging:Guidelines
