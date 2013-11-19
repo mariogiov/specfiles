@@ -9,6 +9,8 @@ See:
 
 - https://fedoraproject.org/wiki/How_to_create_an_RPM_package
   - this is probably the best resource for understanding the different sections
+- http://www.tldp.org/HOWTO/RPM-HOWTO/build.html
+  - but this one covers in more detail some parts
 - https://fedoraproject.org/wiki/Packaging:RPMMacros
   - an enumeration and description of RPM specfile %macros
 - http://en.opensuse.org/openSUSE:Specfile_guidelines
