@@ -26,7 +26,7 @@
 Name:		samtools
 Version:	0.1.19
 Release:	1%{?dist}
-Summary:	A set of tools for processing / filtering SAM- and BAM-formatted data like a mothafucka
+Summary:	A set of tools for processing / filtering SAM- and BAM-formatted data
 
 # http://en.opensuse.org/openSUSE:Package_group_guidelines
 Group:		Productivity/Scientific/Other
