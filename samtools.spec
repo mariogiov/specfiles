@@ -49,7 +49,6 @@ BuildRequires: ncurses
 # Requires are generally handled by rpmbuild or similar
 #Requires:	bowtie
 
-BuildArch: noarch
 
 %description
 SAM (Sequence Alignment/Map) format is a generic format for storing large nucleotide sequence alignments. SAM aims to be a format that:
@@ -65,7 +64,6 @@ SAM Tools provide various utilities for manipulating alignments in the SAM forma
 %prep
 # Uses the setup RPM macro, which knows about tar archives, to extract the files (tar -xvf)
 %setup -q
-#%patch0 -p1 -b .tophat-sam-header.patch
 
 #Fix bad permissions
 #chmod -x src/align_status.*
@@ -86,9 +84,10 @@ make %{?_smp_mflags} razip
 %install
 # samtools does not have a make install but instead packages are manually copied into place
 #make install DESTDIR=%{buildroot}
-cp samtools %{_bindir}/samtools
-cp bcftools/bcftools %{_bindir}/bcftools
-cp razip %{_bindir}/razip
+mkdir -p %{buildroot}%{_bindir}
+cp samtools %{buildroot}%{_bindir}/samtools
+cp bcftools/bcftools %{buildroot}%{_bindir}/bcftools
+cp razip %{buildroot}%{_bindir}/razip
 
 #I believe the clean section is no longer necessary for the openSUSE Open Build Service
 %clean
@@ -104,7 +103,9 @@ rm -rf %{buildroot}
 %{_bindir}/samtools
 %{_bindir}/bcftools
 %{_bindir}/razip
-
+#samtools
+#bcftools/bcftools
+#razip
 
 %changelog
 * Tue Nov 19 2013 Mario Giovacchini <mario@scilifelab.se> - 1.0
