@@ -24,14 +24,14 @@ Summary:	An interpreted, interactive, object-oriented programming language
 Group:		Development/Languages/Python
 License:	Python
 URL:		http://www.python.org/
-Source:     http://www.python.org/ftp/python/%{version}/Python-%{version}.tgz
+Source:		http://www.python.org/ftp/python/%{version}/Python-%{version}.tgz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 
-BuildRequires: sqlite3
-#BuildRequires: libsqlite3
-BuildRequires: sqlite-devel
-#BuildRequires: libsqlite-devel
+BuildRequires: pkgconfig(sqlite3)
+BuildRequires: pkgconfig(libsqlite3-0)
+BuildRequires: pkgconfig(sqlite3-devel)
+BuildRequires: pkgconfig(libsqlite3-0-debuginfo)
 
 
 %description
