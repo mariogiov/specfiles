@@ -24,7 +24,7 @@ Summary:	An interpreted, interactive, object-oriented programming language
 Group:		Development/Languages/Python
 License:	Python
 URL:		http://www.python.org/
-Source:		http://path/to/raw/source/%{version}/package-%{version}.tar.bz2
+Source:     http://www.python.org/ftp/python/%{version}/Python-%{version}.tgz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 
