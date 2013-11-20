@@ -28,10 +28,12 @@ Source:		http://www.python.org/ftp/python/%{version}/Python-%{version}.tgz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 
-BuildRequires: pkgconfig(sqlite3)
-BuildRequires: pkgconfig(libsqlite3-0)
-BuildRequires: pkgconfig(sqlite3-devel)
-BuildRequires: pkgconfig(libsqlite3-0-debuginfo)
+#BuildRequires: pkgconfig(sqlite3)
+#BuildRequires: pkgconfig(sqlite3-devel)
+BuildRequires: sqlite3
+#BuildRequires: sqlite-devel
+#BuildRequires: pkgconfig(libsqlite3-0)
+#BuildRequires: pkgconfig(libsqlite3-0-debuginfo)
 
 
 %description

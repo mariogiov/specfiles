@@ -37,6 +37,7 @@ Source:		http://path/to/raw/source/%{version}/package-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 # BuildRequires are packages needed to actually build binaries form source
+# Find openSUSE versions at http://software.opensuse.org/
 #BuildRequires: zlib
 #BuildRequires: ncurses
 #BuildRequires:	autoconf
