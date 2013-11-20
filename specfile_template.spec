@@ -84,6 +84,7 @@ make %{?_smp_mflags} razip
 #      but you have to make the destination directory under {buildroot} yourself if it doesn't exist
 #      CWD at this point refers to {_builddir}
 %install
+rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}I
 # e.g. samtools does not have a make install but instead packages are manually copied into place
 # technically I think this mkdir stuff is very small security risk as we're generally writing to /tmp or /var
@@ -97,6 +98,8 @@ make install DESTDIR=%{buildroot}I
 rm -rf %{buildroot}
 
 # Here are listed the files created by the build that "belong" to the RPM, the files that will be installed by the end-user via rpm or yum
+# If the pattern begins with a "/" (or when expanded from the macro) then it is taken from the %{buildroot} directory. Otherwise, the file
+# is presumed to be in the current directory (e.g. inside %{_builddir}, such as documentation files that you wish to include).
 %files
 # defattr no longer needed?
 %defattr(-,root,root,-)
