@@ -37,7 +37,14 @@ Source:		http://path/to/raw/source/%{version}/package-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 # BuildRequires are packages needed to actually build binaries form source
-# Find openSUSE versions at http://software.opensuse.org/
+# The procedure for doing this is a little tricky:
+#   - you must find the name using for instance
+#	osc ls -b -r standard RedHat:RHEL-6 | grep sqlite
+#     then create a file named _link containing
+#	<link project='RedHat:RHEL-6' package='sqlite3'/>
+#     and add that file to your project
+# See http://en.opensuse.org/openSUSE:Build_Service_Tips_and_Tricks#Find_Packages_in_a_Project
+# To be honest this part is still a little confusing for me
 #BuildRequires: zlib
 #BuildRequires: ncurses
 #BuildRequires:	autoconf
