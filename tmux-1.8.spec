@@ -26,6 +26,7 @@ URL:		http://http://tmux.sourceforge.net/
 Source:		http://downloads.sourceforge.net/project/%{name}/%{name}/%{name}-%{version}/%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
+BuildRequires: libevent
 
 %description
 
