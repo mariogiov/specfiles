@@ -34,7 +34,7 @@ Source:     http://bitbucket.org/%{name}/%{name}/get/%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 %description
-MAAAAAAAAAAAAAAAAAAAATH!!!
+MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATH!!
 
 %prep
 %setup -q -n eigen-eigen-ffa86ffb5570
