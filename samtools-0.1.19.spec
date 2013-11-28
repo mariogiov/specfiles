@@ -57,7 +57,7 @@ cp samtools %{buildroot}%{_bindir}/samtools
 cp bcftools/bcftools %{buildroot}%{_bindir}/bcftools
 cp razip %{buildroot}%{_bindir}/razip
 cp libbam.a %{buildroot}%{_libdir}/libbam.a
-cp *.h %{buildroot}{$_includedir}/bam/
+cp *.h %{buildroot}%{_includedir}/bam/
 
 %clean
 rm -rf %{buildroot}
