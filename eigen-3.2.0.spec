@@ -34,7 +34,7 @@ Source:     http://bitbucket.org/%{name}/%{name}/get/%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 %description
-MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATH!!
+MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATH!!
 
 %prep
 %setup -q -n eigen-eigen-ffa86ffb5570
@@ -44,8 +44,8 @@ MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 # Nothing to compile for eigen as it is only headers
 
 %install
-mkdir -p %{buildroot}%{_libdir}
-cp -r Eigen %{buildroot}%{_libdir}
+mkdir -p %{buildroot}%{_includedir}
+cp -r Eigen %{buildroot}%{_includedir}/Eigen
 
 #I believe the clean section is no longer necessary for the openSUSE Open Build Service
 %clean
@@ -60,7 +60,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 #%doc AUTHORS COPYING NEWS README THANKS
 # NOTE {_bindir} becomes %{buildroot}/usr/bin or similar, see https://fedoraproject.org/wiki/Packaging:RPMMacros
-%{_libdir}/Eigen
+%{_includedir}/Eigen
 
 %changelog
 * Thu Nov 28 2013 Mario Giovacchini <mario@scilifelab.se> - 1.0
