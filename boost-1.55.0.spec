@@ -65,7 +65,7 @@ rm -rf %{buildroot}
 # /usr/include/boost
 %{_includedir}/*
 # /usr/lib, /usr/lib64
-%{_lib}/*
+%{_libdir}/*
 # /usr/share/docs
 %{_docdir}/*
 
