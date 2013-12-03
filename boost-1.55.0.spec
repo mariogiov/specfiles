@@ -33,6 +33,7 @@ BuildRequires: gcc-c++
 #BuildRequires: bzip2-devel # not available for RHEL/CentOS in software.opensuse.org repos
 # This is not strictly required but if you want to build Boost-Python it is
 BuildRequires: python
+BuildRequires: python-devel
 
 
 %description
