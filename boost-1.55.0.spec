@@ -63,8 +63,8 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 # /usr/include/boost
 %{_includedir}/*
-# /usr/lib, /usr/lib64
-%{_libdir}/*
+# {_libdir} becomes /usr/lib64 on 64-bit systems but b2 installs under /usr/lib
+/usr/lib/*
 
 %changelog
 * Wed Dec 4 2013 Mario Giovacchini <mario@scilifelab.se> - 1.0
