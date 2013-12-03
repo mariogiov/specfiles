@@ -1,9 +1,7 @@
 specfiles
 =========
 
-rpm specfiles used for building packages in use at SciLifeLab
-
-Check these with rpmlint.
+rpm specfiles used for building packages in use at SciLifeLab, to be stored in the [SciLifeLab openSUSE Build Service repo](https://build.opensuse.org/project/show/home:scilifelab). Specfiles can be checked with rpmlint.
 
 See:
 

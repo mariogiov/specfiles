@@ -51,19 +51,25 @@ make %{?_smp_mflags} razip
 
 %install
 mkdir -p %{buildroot}%{_bindir}
+mkdir -p %{buildroot}%{_libdir}
+mkdir -p %{buildroot}%{_includedir}/bam
 cp samtools %{buildroot}%{_bindir}/samtools
 cp bcftools/bcftools %{buildroot}%{_bindir}/bcftools
 cp razip %{buildroot}%{_bindir}/razip
+cp libbam.a %{buildroot}%{_libdir}/libbam.a
+cp *.h %{buildroot}%{_includedir}/bam/
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}/samtools
-%{_bindir}/bcftools
-%{_bindir}/razip
+%{_bindir}/*
+%{_libdir}/libbam.a
+%{_includedir}/bam
 
 %changelog
+* Thu Nov 28 2013 Mario Giovacchini <mario@scilifelab.se> - 1.1
+- Update to include installation of header files and libbam.a
 * Tue Nov 19 2013 Mario Giovacchini <mario@scilifelab.se> - 1.0
 - Intial version

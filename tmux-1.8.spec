@@ -22,10 +22,17 @@ Summary:	Multiprocessing
 
 Group:		Productivity/Scientific/Other
 License:	MIT
-URL:		http://http://tmux.sourceforge.net/
+URL:		http://tmux.sourceforge.net/
 Source:		http://downloads.sourceforge.net/project/%{name}/%{name}/%{name}-%{version}/%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
+
+BuildRequires: libevent
+# This package is not available for RHEL-6 and is too old in the CentOS 6 repo
+# probably needs to be built locally
+BuildRequires: libevent-devel
+BuildRequires: ncurses
+BuildRequires: ncurses-devel
 
 %description
 
@@ -42,7 +49,7 @@ make %{?_smp_mflags}
 
 
 %install
-make install
+make install DESTDIR=%{buildroot}
 
 %clean
 rm -rf %{buildroot}
@@ -50,9 +57,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %{_bindir}/tmux
-%{_defaultdocdir}/tmux-1.6
 %{_mandir}/man1/tmux.1.gz
-%{_localstatedir}/run/tmux
 
 %changelog
 * Tue Nov 19 2013 Mario Giovacchini <mario@scilifelab.se> - 1.0

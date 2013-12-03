@@ -94,11 +94,15 @@ cp razip %{buildroot}%{_bindir}/razip
 rm -rf %{buildroot}
 
 # Here are listed the files created by the build that "belong" to the RPM that will be installed by the end-user
+# There are sotred in %{buildroot} within the RPM, but the path following buildroot is where they will be installed on the system
+# Note that if you write a directory /without/a/trailing/slash, you are saying that that directory and everything under it
+# belong to the package; this is wrong if it is e.g. /usr/local
+# If you want just the dir but not everything under it you must use the %dir directive, e.g. %dir /your/mom
 %files
 # defattr no longer needed?
 %defattr(-,root,root,-)
 #%doc AUTHORS COPYING NEWS README THANKS
-# NOTE {_bindir} becomes /usr/bin or similar, see https://fedoraproject.org/wiki/Packaging:RPMMacros
+# NOTE {_bindir} becomes %{buildroot}/usr/bin or similar, see https://fedoraproject.org/wiki/Packaging:RPMMacros
 #%{_bindir}/*
 %{_bindir}/samtools
 %{_bindir}/bcftools
