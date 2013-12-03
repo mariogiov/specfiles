@@ -54,7 +54,7 @@ sh bootstrap.sh
 %install
 rm -rf %{buildroot}
 # prefix=/usr installs to /usr/include/boost
-./b2 install --prefix=%{buildroot}%{_prefix}
+./b2 install --prefix=%{buildroot}%{_prefix} --toolset=gcc architecture=x86 link=static runtime-link=static stage install
 
 %clean
 rm -rf %{buildroot}
