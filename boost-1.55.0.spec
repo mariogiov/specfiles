@@ -31,7 +31,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 BuildRequires: gcc-c++
 #BuildRequires: bzip2-devel # not available for RHEL/CentOS in software.opensuse.org repos
-# This is not strictly required but if you want to build Boost-Python it is
+# These are not strictly required but if you want to build Boost-Python it is
 BuildRequires: python
 BuildRequires: python-devel
 
@@ -54,7 +54,6 @@ sh bootstrap.sh
 
 %install
 rm -rf %{buildroot}
-# prefix=/usr installs to /usr/include/boost
 ./b2 install --prefix=%{buildroot}%{_prefix} --toolset=gcc architecture=x86 link=static runtime-link=static stage install
 
 %clean
@@ -66,8 +65,6 @@ rm -rf %{buildroot}
 %{_includedir}/*
 # /usr/lib, /usr/lib64
 %{_libdir}/*
-# /usr/share/docs
-%{_docdir}/*
 
 %changelog
 * Wed Dec 4 2013 Mario Giovacchini <mario@scilifelab.se> - 1.0
