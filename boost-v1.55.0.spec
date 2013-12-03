@@ -29,6 +29,7 @@ Source:		http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.t
 # preferred path (as per http://en.opensuse.org/openSUSE:Specfile_guidelines)
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
+BuildRequires: gcc-c++
 # This is not strictly required but if you want to build Boost-Python it is
 BuildRequires: python
 
