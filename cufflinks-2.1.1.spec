@@ -39,6 +39,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 # BuildRequires are packages needed to actually build binaries form source
 BuildRequires: boost
 BuildRequires: eigen
+BuildRequires: gcc-c++
 BuildRequires: samtools
 
 
