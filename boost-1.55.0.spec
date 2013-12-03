@@ -30,6 +30,7 @@ Source:		http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.t
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 BuildRequires: gcc-c++
+#BuildRequires: bzip2-devel # not available for RHEL/CentOS in software.opensuse.org repos
 # This is not strictly required but if you want to build Boost-Python it is
 BuildRequires: python
 
@@ -43,7 +44,6 @@ We aim to establish "existing practice" and provide reference implementations so
 
 
 %prep
-# Uses the setup RPM macro, which knows about tar archives, to extract the files (tar -xvf)
 %setup -q -n boost_1_55_0
 
 
@@ -53,20 +53,20 @@ sh bootstrap.sh
 
 %install
 rm -rf %{buildroot}
-./b2 install --prefix=%{buildroot}%{_includedir}
+# prefix=/usr installs to /usr/include/boost
+./b2 install --prefix=%{buildroot}%{_prefix}
 
-#I believe the clean section is no longer necessary for the openSUSE Open Build Service but rpmlint complains if it's not here
 %clean
 rm -rf %{buildroot}
 
 %files
-# defattr no longer needed?
 %defattr(-,root,root,-)
-# doc has some special magic that's probably worth reading about
-#%doc AUTHORS COPYING NEWS README THANKS
-# NOTE {_bindir} becomes /usr/bin or similar, see https://fedoraproject.org/wiki/Packaging:RPMMacros
-#%{_bindir}/*
+# /usr/include/boost
 %{_includedir}/*
+# /usr/lib, /usr/lib64
+%{_lib}/*
+# /usr/share/docs
+%{_docdir}/*
 
 %changelog
 * Wed Dec 4 2013 Mario Giovacchini <mario@scilifelab.se> - 1.0
