@@ -1,5 +1,5 @@
 #
-# spec file for package samtools
+# spec file for package cufflinks
 #
 # Copyright (c) 2013 Mario Giovacchini <mario@scilifelab.se>
 #
