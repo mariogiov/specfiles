@@ -5,6 +5,8 @@ rpm specfiles used for building packages in use at SciLifeLab, to be stored in t
 
 See:
 
+- http://www.gurulabs.com/downloads/GURULABS-RPM-LAB/GURULABS-RPM-GUIDE-v1.0.PDF
+  - a good overall review of RPMs, the tools surrounding them, and how to build them
 - https://fedoraproject.org/wiki/How_to_create_an_RPM_package
   - this is probably the best resource for understanding the different sections
 - http://www.tldp.org/HOWTO/RPM-HOWTO/build.html
