@@ -73,7 +73,6 @@ queries as it is faster and more accurate. BWA-MEM also has better performance t
 
 %build
 # NOTE that the files produced by make will be in the directory {_builddir}
-%configure
 make %{?_smp_mflags}
 
 
