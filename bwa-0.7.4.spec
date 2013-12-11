@@ -85,7 +85,7 @@ make %{?_smp_mflags}
 #      CWD at this point refers to {_builddir}
 %install
 mkdir -p %{buildroot}%{_bindir}
-cp bwa-0.7.4 %{buildroot}%{_bindir}/bwa
+cp bwa %{buildroot}%{_bindir}/bwa
 
 # e.g. samtools does not have a make install but instead packages are manually copied into place
 # technically I think this mkdir stuff is very small security risk as we're generally writing to /tmp or /var
