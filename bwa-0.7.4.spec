@@ -32,7 +32,7 @@ Summary:	BWA is a software for mapping low-divergent sequences against a large r
 Group:		Scientific/Other
 License:	GPL
 URL:		http://bio-bwa.sourceforge.net/
-Source:		http://sourceforge.net/projects/bio-bwa/files/bwa-0.7.4.tar.bz2/download
+Source:		http://downloads.sourceforge.net/project/bio-bwa/%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 # BuildRequires are packages needed to actually build binaries form source
