@@ -44,7 +44,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 #     and add that file to your project
 # See http://en.opensuse.org/openSUSE:Build_Service_Tips_and_Tricks#Find_Packages_in_a_Project
 # To be honest this part is still a little confusing for me
-#BuildRequires: zlib
+BuildRequires: gpc
 #BuildRequires: ncurses
 #BuildRequires:	autoconf
 #BuildRequires:	automake
