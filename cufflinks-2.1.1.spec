@@ -55,7 +55,7 @@ Cufflinks is a collaborative effort between the Laboratory for Mathematical and 
 
 %build
 # I know, the capital E in Eigen makes me uncomfortable too. That's how they set the default.
-%configure --prefix=/usr/local --with-eigen=/usr/include/eigen --with-boost=/usr/include/boost --with-boost-thread=/usr/lib/libboost_thread.so
+%configure --prefix=/usr/local --with-eigen=/usr/include/Eigen --with-boost=/usr/include/boost --with-boost-thread=/usr/lib/libboost_thread.a
 make %{?_smp_mflags}
 
 
